@@ -9,12 +9,13 @@ function Cat() {
 
 	var onCatMeowEvent  = new hiEvent();
 
-	cat.onMeow = {};
-	cat.onMeow.add = function (fn) {
-		onCatMeowEvent.add(fn);
-	};
-	cat.onMeow.remove = function (fn) {
-		onCatMeowEvent.remove(fn);
+	cat.onMeow = {
+		add: function (fn) {
+			onCatMeowEvent.add(fn);
+		},
+		remove: function (fn) {
+			onCatMeowEvent.remove(fn);
+		}
 	};
 
 	cat.meow = function () {
