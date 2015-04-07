@@ -46,6 +46,18 @@
 		// TBD
 	};
 
+	function EventProxy(event) {
+		var proxy = this;
+
+		proxy.add = function(fn){
+			event.add(fn)
+		};
+
+		proxy.remove = function(fn){
+			event.remove(fn);
+		};
+	}
+
 	function generateHash() {
 		return hash++;
 	}
@@ -55,5 +67,6 @@
 	}
 
 	global.hiEvent = Event;
+	global.hiEventProxy = EventProxy;
 
 }(this));
