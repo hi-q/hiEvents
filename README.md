@@ -9,14 +9,7 @@ function Cat() {
 
 	var onCatMeowEvent  = new hiEvent();
 
-	cat.onMeow = {
-		add: function (fn) {
-			onCatMeowEvent.add(fn);
-		},
-		remove: function (fn) {
-			onCatMeowEvent.remove(fn);
-		}
-	};
+	cat.onMeow = new hiEventProxy(onCatMeowEvent)
 
 	cat.meow = function () {
 		console.log("meow");
@@ -29,7 +22,7 @@ function Cat() {
 
 var cat = new Cat();
 cat.onMeow.add(function () {
-	console.log("on meow");	
+	console.log("on meow");
 });
 //...
 cat.meow();
